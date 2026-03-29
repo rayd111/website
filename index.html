@@ -1,1 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>This Website is Awesome</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark-bg: #1d2331;
+      --dark-nav: #1a202c;
+      --accent: #3b7cf4;
+      --accent-hover: #2563eb;
+      --text-light: #ffffff;
+      --text-muted: #9ca3af;
+      --text-dark: #1d2331;
+      --quote-bg: #e5e7eb;
+      --cta-bg: #3b7cf4;
+      --footer-bg: #1a202c;
+      --card-border: #3b7cf4;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text-dark);
+      background: #fff;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--dark-nav);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 60px;
+    }
+
+    .logo {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text-light);
+      letter-spacing: .02em;
+    }
+
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: .9rem;
+      margin-left: 32px;
+      opacity: .85;
+      transition: opacity .2s;
+    }
+    nav a:hover { opacity: 1; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--dark-bg);
+      padding: 80px 60px 90px;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero-text { flex: 1; }
+
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--text-light);
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .hero-text p {
+      font-size: .95rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      max-width: 380px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-size: .9rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+    }
+    .btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+    .hero-image {
+      flex: 1.1;
+      background: #6b7280;
+      border-radius: 8px;
+      min-height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #d1d5db;
+      font-size: .9rem;
+    }
+
+    /* ── INFO CARDS ── */
+    .info {
+      padding: 80px 60px;
+      text-align: center;
+    }
+
+    .info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 50px;
+      color: var(--text-dark);
+    }
+
+    .cards {
+      display: flex;
+      gap: 28px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      width: 160px;
+    }
+
+    .card-img {
+      width: 140px;
+      height: 140px;
+      border: 2px solid var(--card-border);
+      border-radius: 14px;
+      background: #fff;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .card-img:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(59,124,244,.15);
+    }
+
+    .card p {
+      font-size: .82rem;
+      color: #6b7280;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    /* ── QUOTE ── */
+    .quote {
+      background: var(--quote-bg);
+      padding: 90px 60px;
+      text-align: left;
+    }
+
+    .quote blockquote {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .quote blockquote p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.65rem;
+      line-height: 1.55;
+      color: #1f2937;
+      margin-bottom: 28px;
+    }
+
+    .quote blockquote cite {
+      display: block;
+      text-align: right;
+      font-style: normal;
+      font-weight: 700;
+      font-size: .95rem;
+      color: #1f2937;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      padding: 60px 60px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .cta-box {
+      background: var(--cta-bg);
+      border-radius: 12px;
+      padding: 40px 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      max-width: 700px;
+      width: 100%;
+    }
+
+    .cta-box .cta-text h3 {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .cta-box .cta-text p {
+      font-size: .875rem;
+      color: rgba(255,255,255,.8);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-size: .9rem;
+      font-weight: 500;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+    }
+    .btn-outline:hover { background: #fff; color: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--footer-bg);
+      color: var(--text-muted);
+      text-align: center;
+      padding: 28px 60px;
+      font-size: .85rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      header { padding: 16px 24px; }
+      .hero { flex-direction: column; padding: 50px 24px 60px; }
+      .hero-text h1 { font-size: 2.2rem; }
+      .info { padding: 60px 24px; }
+      .cards { gap: 20px; }
+      .quote { padding: 60px 24px; }
+      .quote blockquote p { font-size: 1.25rem; }
+      .cta-section { padding: 40px 24px; }
+      .cta-box { flex-direction: column; text-align: center; padding: 32px 28px; }
+      footer { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <span class="logo">Header Logo</span>
+    <nav>
+      <a href="#">header link one</a>
+      <a href="#">header link two</a>
+      <a href="#">header link three</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>This website is awesome</h1>
+      <p>This website has some subtext that goes here under the main title. It's a smaller font and the color is lower contrast.</p>
+      <a href="#" class="btn">Sign up</a>
+    </div>
+    <div class="hero-image">this is a placeholder for an image</div>
+  </section>
+
+  <!-- INFO CARDS -->
+  <section class="info">
+    <h2>Some random information.</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-img"></div>
+        <p>this is some subtext under an illustration or image</p>
+      </div>
+      <div class="card">
+        <div class="card-img"></div>
+        <p>this is some subtext under an illustration or image</p>
+      </div>
+      <div class="card">
+        <div class="card-img"></div>
+        <p>this is some subtext under an illustration or image</p>
+      </div>
+      <div class="card">
+        <div class="card-img"></div>
+        <p>this is some subtext under an illustration or image</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="quote">
+    <blockquote>
+      <p>This is an inspiring quote, or a testimonial from a customer. Maybe it's just filling up space, or maybe people will actually read it. Who knows? All I know is that it looks nice.</p>
+      <cite>-Thor, God of Thunder</cite>
+    </blockquote>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-box">
+      <div class="cta-text">
+        <h3>Call to action! It's time!</h3>
+        <p>Sign up for our product by clicking that button right over there!</p>
+      </div>
+      <button class="btn-outline">Sign up</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Copyright &copy; The Odin Project 2021</p>
+  </footer>
+
+</body>
+</html>
 
